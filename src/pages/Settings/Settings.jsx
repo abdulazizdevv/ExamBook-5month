@@ -27,12 +27,12 @@ export const Settings = () => {
   const [theme, setThemes] = useState(localStorage.getItem("mode") || "light");
   if (document.body.classList == "body") {
     document.body.classList.add(localStorage.getItem("mode"));
-  } else if (theme == "dark") {
-    document.body.classList.remove("dark");
-    document.body.classList.add("light");
   } else if (theme == "light") {
     document.body.classList.remove("light");
     document.body.classList.add("dark");
+  } else if (theme == "dark") {
+    document.body.classList.remove("dark");
+    document.body.classList.add("light");
   }
   const handleClick = (evt) => {
     evt.target.classList.toggle("active");
