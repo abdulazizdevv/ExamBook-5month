@@ -1,26 +1,29 @@
+import userImg from "../../assets/images/user.png";
 import arrowDown from "../../assets/images/arrow.svg";
 import "./header.css";
 import { useRef, useState } from "react";
 import {
-  HeaderAll,
+  HeaderContainer,
   HeaderNav,
   HeaderNavLogo,
   HeaderNavLinks,
   HeaderNavLink,
   HeaderSelectbox,
   HeaderOptionSelected,
+  HeaderOptionSelectedImg,
   HeaderOptionSelectedArrowDown,
   HeaderOptionsContainer,
   Option,
   OptionLabel,
   OptionRadio,
   HeaderBtn,
-  ProfImg,
 } from "./header.style";
 import { useTranslation } from "react-i18next";
+import { lang } from "../../lang/lang";
 
 export const Header = () => {
   const { t } = useTranslation();
+
   const opContainer = useRef();
   const opArrowDown = useRef();
   const handleOption = (evt) => {
@@ -35,21 +38,24 @@ export const Header = () => {
       opArrowDown.current.classList.remove("active");
     }
   };
-  const [dataImg, setDataImg] = useState({});
+  const [avatarName, setAvatarName] = useState({});
   setTimeout(() => {
     let data = JSON.parse(localStorage.getItem("user"));
-    setDataImg(data);
+    // console.log(data);
+    setAvatarName(data);
   }, 500);
   const handleSelecteds = () => {
     localStorage.removeItem("token");
     window.location.replace("/");
   };
   return (
-    <HeaderAll>
+    <HeaderContainer>
       <HeaderNav>
+        {lang.uz.header.add}
         <HeaderNavLogo onClick={handleSelected} to={"/"}>
           {t("header.logo")}
         </HeaderNavLogo>
+        
         <HeaderNavLinks>
           <HeaderNavLink onClick={handleSelected} to={"/"}>
             {t("header.homePage")}
@@ -85,15 +91,16 @@ export const Header = () => {
               </Option>
             </HeaderOptionsContainer>
             <HeaderOptionSelected onClick={(evt) => handleOption(evt)}>
+              {/* <HeaderOptionSelectedImg src={userImg} /> */}
               <HeaderBtn>
-                {dataImg.image != null ? (
-                  <ProfImg
+                {avatarName.image != null ? (
+                  <img
                     className="profileImg"
-                    src={`http://localhost:5000/${dataImg.image}`}
+                    src={`http://localhost:5000/${avatarName.image}`}
                     alt="image"
                   />
-                ) : dataImg.first_name != undefined ? (
-                  dataImg.first_name.at(0) + "." + dataImg.last_name.at(0)
+                ) : avatarName.first_name != undefined ? (
+                  avatarName.first_name.at(0) + "." + avatarName.last_name.at(0)
                 ) : (
                   " " + " "
                 )}
@@ -106,6 +113,6 @@ export const Header = () => {
           </HeaderSelectbox>
         </HeaderNavLinks>
       </HeaderNav>
-    </HeaderAll>
+    </HeaderContainer>
   );
 };
