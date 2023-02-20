@@ -1,0 +1,53 @@
+
+
+
+/* .slick-next, .slick-prev,.slick-arrow{
+    display: none !important;
+}
+
+/* .slick-slider{
+    position: relative;
+} */
+/* 
+ul .slick-dots {
+  
+    width: 100px !important;
+   display: none !important;
+}
+.slick-dots {
+    bottom: 82px;
+    left: 80px;
+    width: 300px !important;
+   display: none !important;
+
+}
+
+.slick-dots li  {
+    width: 57.39px;
+height: 3px;
+background: rgba(255, 255, 255, 0.6);
+border-radius: 10px ;
+position: relative;
+display: none !important;
+
+}
+
+ ul .slick-active {
+    background: #FFFFFF;
+   display: none !important;
+
+}
+
+.slick-dots li button {
+    width: 100%;
+    height: 100%;
+position: absolute;
+top: 0px;
+left: 0;
+display: none !important;
+
+
+}
+.slick-slide{
+    margin-left: 20px !important;
+}  */
