@@ -33,11 +33,11 @@ export const Security = () => {
       newPassword: newPasswordRef.current.value,
     });
     const userSetting = async () => {
-      const res = await fetch("http://10.10.3.114:5000/user/secutiry", {
+      const res = await fetch("http://localhost:5000/user/security", {
         method: "PUT",
         headers: {
           Authorization: localStorage.getItem("token"),
-          // "Content-Type": "application/json",
+          "Content-Type": "application/json",
         },
         body: JSON.stringify({
           email: emailRef.current.value,
@@ -48,45 +48,7 @@ export const Security = () => {
       console.log(res);
     };
     userSetting();
-    // api
-    //   .getSecurity({
-    //     data: body,
-    //     headers: {
-    //       Authorization: localStorage.getItem("token"),
-    //     },
-    //   })
-    //   .then((data) => console.log(data))
-    //   .catch((err) => console.log(err));
   };
-  //   fetch("http://10.10.3.114:5000/user/secutiry", {
-  //     method: "PUT",
-  //     headers: {
-  //       Authorization: localStorage.getItem("token"),
-  //     },
-  //     body: JSON.stringify({
-  //       email: emailRef.current.value,
-  //       currentPassword: currentRef.current.value,
-  //       newPassword: newPasswordRef.current.value,
-  //     }),
-  //   })
-  //     .then((res) => res.json())
-  //     .then((data) => console.log(data))
-  //     .catch((err) => console.log(err));
-  // };
-
-  // const All = async () => {
-  //   const res = await api.getUser({
-  //     headers: {
-  //       Authorization: localStorage.getItem("token"),
-  //     },
-  //   });
-  //   if (res.status === 201) {
-  //     localStorage.setItem("user", JSON.stringify(res.data));
-  //     dispatch(setUser(res.data));
-  //     // console.log(res.data.email);
-  //   }
-  // };
-  // All();
 
   return (
     <AllSecurity>
