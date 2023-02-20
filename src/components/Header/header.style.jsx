@@ -137,3 +137,6 @@ export const HeaderBtn = styled.button`
   border: 1px solid grey;
  
 `;
+export const ProfImg =styled.img`
+  object-fit: cover;
+`

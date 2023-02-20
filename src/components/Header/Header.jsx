@@ -1,4 +1,3 @@
-import userImg from "../../assets/images/user.png";
 import arrowDown from "../../assets/images/arrow.svg";
 import "./header.css";
 import { useRef, useState } from "react";
@@ -10,13 +9,13 @@ import {
   HeaderNavLink,
   HeaderSelectbox,
   HeaderOptionSelected,
-  HeaderOptionSelectedImg,
   HeaderOptionSelectedArrowDown,
   HeaderOptionsContainer,
   Option,
   OptionLabel,
   OptionRadio,
   HeaderBtn,
+  ProfImg,
 } from "./header.style";
 import { useTranslation } from "react-i18next";
 import { lang } from "../../lang/lang";
@@ -41,7 +40,6 @@ export const Header = () => {
   const [avatarName, setAvatarName] = useState({});
   setTimeout(() => {
     let data = JSON.parse(localStorage.getItem("user"));
-    // console.log(data);
     setAvatarName(data);
   }, 500);
   const handleSelecteds = () => {
@@ -91,10 +89,9 @@ export const Header = () => {
               </Option>
             </HeaderOptionsContainer>
             <HeaderOptionSelected onClick={(evt) => handleOption(evt)}>
-              {/* <HeaderOptionSelectedImg src={userImg} /> */}
               <HeaderBtn>
                 {avatarName.image != null ? (
-                  <img
+                  <ProfImg
                     className="profileImg"
                     src={`http://localhost:5000/${avatarName.image}`}
                     alt="image"
